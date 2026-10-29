@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shop</title>
+</head>
+<body>
+  <h1>Shop</h1>
+  <button id="load">Load products</button>
+  <button id="order">Place order</button>
+  <output id="status"></output>
+  <script>
+    const status = document.getElementById('status');
+    document.getElementById('load').addEventListener('click', async () => {
+      const response = await fetch('/api/products');
+      status.textContent = (await response.json()).path;
+    });
+    document.getElementById('order').addEventListener('click', async () => {
+      try {
+        await fetch('/api/orders', { method: 'POST', body: '{}' });
+        status.textContent = 'Order placed';
+      } catch {
+        status.textContent = 'Order failed';
+      }
+    });
+  </script>
+</body>
+</html>
