@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-10-29
+
 ### Added
 - `test` fixture with `syntheticConfig` option: synthetic traffic header on same-origin requests,
   `block` rules that abort mutating requests to protected endpoints, and `requiredEnv` checks.
